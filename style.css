@@ -1,0 +1,166 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+    padding: 20px;
+    position: relative;
+    background: #000;
+}
+
+/* Animerad stjärnbakgrund med parallax */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.08;
+    animation: driftStars 120s linear infinite;
+    z-index: -1;
+    transform: translateZ(0);
+}
+
+@keyframes driftStars {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
+header img {
+    width: 280px;
+    filter: drop-shadow(0 0 20px #0ff);
+}
+
+/* Glödande container */
+section {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 30px;
+    background: rgba(10, 10, 25, 0.85);
+    border: 2px solid #0ff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #0ff88c99;
+    animation: fadeIn 1s ease-out;
+    backdrop-filter: blur(4px);
+}
+
+/* Text glow */
+h1, h2 {
+    color: #00ffff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #00f;
+    margin-bottom: 15px;
+}
+
+/* Trailer styling */
+iframe {
+    border: 5px solid #0ff;
+    border-radius: 12px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 560px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+iframe:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #0ff, 0 0 40px #0ff;
+}
+
+/* Neon länklist */
+section ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    list-style-type: none;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+section ul li a {
+    color: #0ff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 14px;
+    border: 1px solid #0ff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #0ff;
+    transition: all 0.3s ease;
+}
+section ul li a:hover {
+    background: #0ff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #0ff;
+}
+
+/* Footer med blinkande neon */
+footer {
+    height: 50px;
+    background-color: #111;
+    color: #0ff;
+    font-size: 14px;
+    border-top: 1px solid #0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: neonPulse 3s infinite alternate;
+}
+
+footer p {
+    margin: 0 10px;
+}
+
+@keyframes neonPulse {
+    from { text-shadow: 0 0 5px #0ff; }
+    to { text-shadow: 0 0 20px #0ff, 0 0 30px #00f; }
+}
+
+/* Responsivitet */
+@media (max-width: 600px) {
+    header img {
+        width: 180px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    section ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Extra kul: Svävande container */
+section:hover {
+    animation: floaty 3s ease-in-out infinite alternate;
+}
+
+@keyframes floaty {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
